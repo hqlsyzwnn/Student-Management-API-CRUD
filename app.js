@@ -36,9 +36,14 @@ async function addstudent()
             return;
         }
 
+        if(result.success){
+            await showAllStudent();
+        }
+
         console.log(result);
 
         form.reset();
+        // location.reload();
         } catch (error) {
             alert(error.message);
             throw new Error(error);
@@ -90,7 +95,6 @@ async function showAllStudent()
                                         onClick="deleteStudent(${student.id})"
                                         type="button"
                                         class="btn btn-delete"
-                                        data-id="1"
                                     >Delete</button>
                                 </div>
                                     </td>
@@ -104,3 +108,31 @@ async function showAllStudent()
 }
 
 showAllStudent();
+
+async function deleteStudent(id)
+{
+    try {
+        const response = await fetch(`deletestudent.php?id=${id}`, {
+            method: 'DELETE'
+        });
+
+        const result = await response.json();
+
+        if(!response.ok){
+            alert(result.message);
+
+            return;
+        }
+
+        console.log(result);
+
+        if(result.success) {
+            await showAllStudent();
+        }
+
+        // location.reload();
+    } catch (error){
+        alert(error.message);
+        console.error(error);
+    }
+}
