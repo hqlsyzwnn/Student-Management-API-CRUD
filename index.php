@@ -90,51 +90,6 @@
                     </thead>
 
                     <tbody id="studentList">
-
-                        <tr>
-                            <td>1</td>
-                            <td>Ahmad</td>
-                            <td>ahmad@example.com</td>
-                            <td>Computer Science</td>
-                            <td>012-3456789</td>
-                            <td>
-                                <div class="actions">
-                                    <a
-                                        href="editstudent.php?id=1"
-                                        class="btn btn-edit"
-                                    >Edit</a>
-
-                                    <button
-                                        type="button"
-                                        class="btn btn-delete"
-                                        data-id="1"
-                                    >Delete</button>
-                                </div>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>2</td>
-                            <td>Siti</td>
-                            <td>siti@example.com</td>
-                            <td>Information Technology</td>
-                            <td>013-4567890</td>
-                            <td>
-                                <div class="actions">
-                                    <a
-                                        href="editstudent.php?id=2"
-                                        class="btn btn-edit"
-                                    >Edit</a>
-
-                                    <button
-                                        type="button"
-                                        class="btn btn-delete"
-                                        data-id="2"
-                                    >Delete</button>
-                                </div>
-                            </td>
-                        </tr>
-
                     </tbody>
                 </table>
             </div>

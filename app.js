@@ -47,3 +47,60 @@ async function addstudent()
 }
 
 addstudent();
+
+async function showAllStudent()
+{
+    const list = document.querySelector('#studentList');
+
+    try {
+        const response = await fetch('showall.php', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        const result = await response.json();
+
+        if(!response.ok){
+            alert(result.message);
+            throw new Error(result.message);
+
+            return;
+        }
+
+        console.log(result);
+
+        result.data.forEach((student) => {
+            list.innerHTML += `
+                                <tr>
+                                    <td>${student.id}</td>
+                                    <td>${student.name}</td>
+                                    <td>${student.email}</td>
+                                    <td>${student.course}</td>
+                                    <td>${student.no_phone}</td>
+                                    <td>
+                                        <div class="actions">
+                                    <a
+                                        href="editstudent.php?${student.id}"
+                                        class="btn btn-edit"
+                                    >Edit</a>
+
+                                    <button
+                                        onClick="deleteStudent(${student.id})"
+                                        type="button"
+                                        class="btn btn-delete"
+                                        data-id="1"
+                                    >Delete</button>
+                                </div>
+                                    </td>
+                                </tr>
+                            `
+        })
+    } catch (error){
+        alert(error.message);
+        console.log(error);
+    }
+}
+
+showAllStudent();
