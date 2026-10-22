@@ -1,0 +1,217 @@
+
+/* General */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+    color: #222;
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 1000px;
+    width: 90%;
+    margin: 40px auto;
+}
+
+/* Header */
+header {
+    margin-bottom: 25px;
+}
+
+header h1 {
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+header p {
+    color: #666;
+}
+
+/* Card */
+.card {
+    background: #fff;
+    padding: 25px;
+    margin-bottom: 25px;
+    border: 1px solid #e0e4e9;
+    border-radius: 8px;
+}
+
+.card h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+/* Form */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #3159c9;
+    box-shadow: 0 0 0 2px #3159c922;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    border: none;
+    border-radius: 5px;
+    padding: 9px 13px;
+    font-size: 13px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.btn-add {
+    background: #3159c9;
+    color: white;
+}
+
+.btn-add:hover {
+    background: #2445a5;
+}
+
+.btn-edit {
+    background: #e6edff;
+    color: #2445a5;
+}
+
+.btn-edit:hover {
+    background: #d4e0ff;
+}
+
+.btn-delete {
+    background: #ffe7e7;
+    color: #c62828;
+}
+
+.btn-delete:hover {
+    background: #ffd5d5;
+}
+
+.btn-home {
+    background: #3159c9;
+    color: white;
+}
+
+.btn-home:hover {
+    background: #2445a5;
+}
+
+.btn-cancel {
+    background: #e8eaee;
+    color: #333;
+}
+
+.btn-cancel:hover {
+    background: #d9dde4;
+}
+
+/* Student Table */
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+thead {
+    background: #f0f3f8;
+}
+
+th,
+td {
+    padding: 13px 12px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+th {
+    font-size: 12px;
+    color: #555;
+}
+
+td {
+    font-size: 13px;
+}
+
+tbody tr:hover {
+    background: #fafbfe;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Edit Page */
+.edit-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.edit-header h2 {
+    margin-bottom: 0;
+}
+
+.form-actions {
+    margin-top: 20px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .container {
+        width: 94%;
+        margin: 20px auto;
+    }
+
+    .card {
+        padding: 16px;
+    }
+
+    header h1 {
+        font-size: 24px;
+    }
+
+    th,
+    td {
+        padding: 10px;
+    }
+
+    .actions {
+        flex-wrap: wrap;
+    }
+}
