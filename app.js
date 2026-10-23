@@ -2,6 +2,8 @@ async function addstudent()
 {
     const form = document.querySelector('#addStudentForm');
 
+    if (!form) return;
+
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
@@ -76,6 +78,10 @@ async function showAllStudent()
 
         console.log(result);
 
+        if (!list) return;
+
+        list.innerHTML = '';
+
         result.data.forEach((student) => {
             list.innerHTML += `
                                 <tr>
@@ -87,7 +93,7 @@ async function showAllStudent()
                                     <td>
                                         <div class="actions">
                                     <a
-                                        href="editstudent.php?${student.id}"
+                                        href="editstudent.php?id=${student.id}"
                                         class="btn btn-edit"
                                     >Edit</a>
 
@@ -126,6 +132,8 @@ async function deleteStudent(id)
 
         console.log(result);
 
+        alert(result.message);
+
         if(result.success) {
             await showAllStudent();
         }
@@ -136,3 +144,83 @@ async function deleteStudent(id)
         console.error(error);
     }
 }
+
+async function showStudent() 
+{
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+
+    try {
+        const response = await fetch(`show.php?id=${id}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if(!response.ok){
+            alert('respond not okay');
+
+            return;
+        }
+
+        const result = await response.json();
+
+        const student = result.data;
+
+        document.querySelector('#editname').value = student.name;
+        document.querySelector('#editemail').value = student.email;
+        document.querySelector('#editcourse').value = student.course;
+        document.querySelector('#editphone').value = student.no_phone;
+
+        console.log(result);
+    } catch (error) {
+        alert(error);
+        console.error(error);
+    }
+}
+
+showStudent();
+
+async function editStudent()
+{
+    const form = document.querySelector('#editStudentForm');
+
+    if(!form) return;
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get('id');
+
+        const student = {
+            name: document.querySelector('#editname').value.trim(),
+            email: document.querySelector('#editemail').value.trim(),
+            course: document.querySelector('#editcourse').value.trim(),
+            no_phone: document.querySelector('#editphone').value.trim(),
+        };
+
+        try {
+            const response = await fetch(`edit.php?id=${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(student)
+            });
+
+            const result = await response.json();
+
+            if(result.success){
+                alert(result.message);
+                window.location.href = "index.php";
+                return;
+            }
+        } catch (error){
+            alert(error);
+        }
+    })
+}
+
+editStudent();

@@ -32,9 +32,8 @@
                     <label for="name">Student Name</label>
                     <input
                         type="text"
-                        id="name"
+                        id="editname"
                         name="name"
-                        value="Ahmad"
                         placeholder="Enter student name"
                         required
                     >
@@ -44,9 +43,8 @@
                     <label for="email">Email</label>
                     <input
                         type="email"
-                        id="email"
+                        id="editemail"
                         name="email"
-                        value="ahmad@example.com"
                         placeholder="Enter student email"
                         required
                     >
@@ -56,9 +54,8 @@
                     <label for="course">Course</label>
                     <input
                         type="text"
-                        id="course"
+                        id="editcourse"
                         name="course"
-                        value="Computer Science"
                         placeholder="Enter student course"
                         required
                     >
@@ -68,20 +65,19 @@
                     <label for="phone">Phone Number</label>
                     <input
                         type="tel"
-                        id="phone"
+                        id="editphone"
                         name="phone"
-                        value="012-3456789"
                         placeholder="Enter phone number"
                         required
                     >
                 </div>
 
                 <div class="actions form-actions">
-                    <button type="submit" class="btn btn-add">
+                    <button onclick="" type="submit" class="btn btn-add">
                         Update Student
                     </button>
 
-                    <a href="index.html" class="btn btn-cancel">
+                    <a href="index.php" class="btn btn-cancel">
                         Cancel
                     </a>
                 </div>
